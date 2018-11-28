@@ -2,7 +2,7 @@
   <div class="content">
       <Header></Header>
       <ul class="min">
-        <li>
+        <li :style="{ 'height': h  }">
           <Sidebar></Sidebar>
         </li>
         <li style="width:100%">
@@ -15,7 +15,15 @@
 
 <script>
 export default {
- 
+  data(){
+    return(
+      {
+          h: window.innerHeight-70+"px",
+
+      }
+    )
+  },
+
 };
 </script>
 <style>

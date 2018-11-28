@@ -1,6 +1,6 @@
 <template>
-    <div class="sidebar">
-        <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="collapse" background-color="#324157"
+    <div class="sidebar" >
+        <el-menu class="sidebar-el-menu"  :default-active="onRoutes" :collapse="collapse" background-color="#324157"
             text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened router>
             <template v-for="item in items">
                 <template v-if="item.subs">
@@ -32,9 +32,8 @@
 </template>
 
 <script>
- import bus from './bus.js';
+import bus from "./bus.js";
 export default {
-    
   data() {
     return {
       collapse: true,
@@ -63,7 +62,7 @@ export default {
               index: "form",
               title: "门店用户管理"
             },
-            
+
             {
               index: "upload",
               title: "消费用户管理"
@@ -88,30 +87,45 @@ export default {
         {
           icon: "el-icon-goods",
           index: "6",
-          title: "呵呵哈",
-         
+          title: "呵呵哈"
         }
       ]
     };
   },
+
+
   computed: {
     onRoutes() {
       return this.$route.path.replace("/", "");
     }
   },
+
+
   created() {
     // 通过 Event Bus 进行组件间通信，来折叠侧边栏
     bus.$on("collapse", msg => {
       this.collapse = msg;
     });
+  },
+
+
+  beforeMount() {
+  
+ 
+
+  },
+  mounted() {
+
   }
 };
 </script>
 
+
+
 <style scoped>
 .sidebar {
-  display:inline-block;
-  height: 586px;
+  display: inline-block;
+  height: 100%;
 }
 .sidebar::-webkit-scrollbar {
   width: 0;
