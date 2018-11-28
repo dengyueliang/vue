@@ -40,18 +40,38 @@ export default {
       items: [
         {
           icon: "el-icon-info",
-          index: "dashboard",
+          index: "/info/cese",
           title: "系统首页"
         },
         {
           icon: "el-icon-error",
-          index: "table",
-          title: "查看门店"
+          index: "1",
+          title: "门店管理",
+          subs: [
+            {
+              index: "/info/shopAdd",
+              title: "新增门店"
+            },
+            {
+              index: "/info/shopList",
+              title: "门店列表"
+            }
+          ]
         },
         {
           icon: "el-icon-success",
-          index: "tabs",
-          title: "增加门店"
+          index: "2",
+          title: "服务管理",
+          subs: [
+            {
+              index: "/info/addService",
+              title: "新增服务"
+            },
+            {
+              index: "/info/serviceList",
+              title: "服务列表"
+            }
+          ]
         },
         {
           icon: "el-icon-warning",
@@ -59,47 +79,63 @@ export default {
           title: "用户管理",
           subs: [
             {
-              index: "form",
-              title: "门店用户管理"
+              index: "4",
+              title: "商家管理",
+              subs: [
+                {
+                  index: "/info/addBusiness",
+                  title: "新增商家"
+                },
+                {
+                  index: "/info/businessList",
+                  title: "商家列表"
+                }
+              ]
             },
-
             {
-              index: "upload",
-              title: "消费用户管理"
+              index: "5",
+              title: "用户管理",
+              subs: [
+                {
+                  index: "/info/addUser",
+                  title: "新增用户"
+                },
+                {
+                  index: "/info/userList",
+                  title: "用户列表"
+                }
+              ]
             }
           ]
         },
         {
-          icon: "el-icon-question",
-          index: "icon",
-          title: "自定义"
-        },
-        {
-          icon: "el-icon-remove",
-          index: "charts",
-          title: "添加管理"
-        },
-        {
           icon: "el-icon-circle-plus",
-          index: "drag",
-          title: "没想好"
-        },
-        {
-          icon: "el-icon-goods",
           index: "6",
-          title: "呵呵哈"
+          title: "商品管理",
+          subs: [
+            {
+              index: "/info/addGoods",
+              title: "新增商品"
+            },
+            {
+              index: "/info/goodsList",
+              title: "商家列表"
+            },
+            {
+              index: "/info/addPets",
+              title: "新增宠物"
+            }
+          ]
         }
       ]
     };
   },
-
 
   computed: {
     onRoutes() {
       return this.$route.path.replace("/", "");
     }
   },
-
 
   created() {
     // 通过 Event Bus 进行组件间通信，来折叠侧边栏
@@ -108,15 +144,8 @@ export default {
     });
   },
 
-
-  beforeMount() {
-  
- 
-
-  },
-  mounted() {
-
-  }
+  beforeMount() {},
+  mounted() {}
 };
 </script>
 

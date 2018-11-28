@@ -6,7 +6,7 @@
           <Sidebar></Sidebar>
         </li>
         <li style="width:100%">
-          内容
+          <router-view></router-view>
         </li>
       </ul>
       
