@@ -40,8 +40,8 @@ export default {
       items: [
         {
           icon: "el-icon-info",
-          index: "/info/cese",
-          title: "系统首页"
+          index: "/info/hello",
+          title: "系统首页",
         },
         {
           icon: "el-icon-error",
@@ -74,41 +74,6 @@ export default {
           ]
         },
         {
-          icon: "el-icon-warning",
-          index: "3",
-          title: "用户管理",
-          subs: [
-            {
-              index: "4",
-              title: "商家管理",
-              subs: [
-                {
-                  index: "/info/addBusiness",
-                  title: "新增商家"
-                },
-                {
-                  index: "/info/businessList",
-                  title: "商家列表"
-                }
-              ]
-            },
-            {
-              index: "5",
-              title: "用户管理",
-              subs: [
-                {
-                  index: "/info/addUser",
-                  title: "新增用户"
-                },
-                {
-                  index: "/info/userList",
-                  title: "用户列表"
-                }
-              ]
-            }
-          ]
-        },
-        {
           icon: "el-icon-circle-plus",
           index: "6",
           title: "商品管理",
@@ -126,7 +91,38 @@ export default {
               title: "新增宠物"
             }
           ]
-        }
+        },
+         {
+          icon: "el-icon-warning",
+          index: "3",
+          title: "用户管理",
+          subs: [
+            {
+              index: "4",
+              title: "商家管理",
+              subs: [
+                {
+                  index: "/info/onLineBusinessList",
+                  title: "商家列表",
+                },
+                {
+                  index: "/info/toexamineBusinessList",
+                  title: "待审商家"
+                }
+              ]
+            },
+            {
+              index: "5",
+              title: "客户管理",
+              subs: [
+                {
+                  index: "/info/userList",
+                  title: "客户列表"
+                }
+              ]
+            }
+          ]
+        },
       ]
     };
   },

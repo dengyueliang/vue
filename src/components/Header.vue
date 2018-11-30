@@ -22,7 +22,7 @@
                 <!-- 用户名下拉菜单 -->
                 <el-dropdown class="user-name" trigger="click">
                     <span class="el-dropdown-link">
-                        黄涛
+                        {{userType===0?"平台管理员":"门店管理员"}}
                         <i class="el-icon-caret-bottom"></i>
                     </span>
                     <el-dropdown-menu slot="dropdown">
@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import bus from "./bus.js";
 export default {
   data() {
@@ -45,6 +47,12 @@ export default {
       message: 2
     };
   },
+  computed:{
+    ...mapState("login",["userType"])
+  },
+ mounted(){
+   console.log(this.userType)
+ },
   methods: {
     // 侧边栏折叠
     collapseChage() {
