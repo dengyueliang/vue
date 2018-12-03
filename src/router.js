@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Info from "./views/Info.vue"
 import Login from "./views/Login.vue"
-import ShopsList from "./components/shops/shopsList.vue"
-import ShopsAdd from"./components/shops/Add.vue"
-import ShopsUpdata  from"./components/updataShop/updata.vue"
-import ShopEmployee from"./components/shops/shopEmployee.vue"
+import Goods from "./views/goods.vue"
+import GoodsList from "./views/goodsList.vue"
+import GoodUpdate from "./views/goodUpdate.vue"
+
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -13,25 +13,37 @@ export default new Router({
       path: '/info',
       name: 'info',
       component: Info,
-      children: [{
-        path: '/info/add',
-        name: 'shopsAdd',
-        component: ShopsAdd
-      },
-       {
-        path: '/info/shopsList',
-        name: 'shopsList',
-        component:ShopsList
-      },{
-        path: '/info/shopsUpdata/:_id',
-        name: 'shopsUpdata',
-        component:ShopsUpdata
-      },{
-        path: '/info/shopEmployee/:_id',
-        name: 'shopEmployee',
-        component:ShopEmployee
-      }]
-    }
+      children:[
+        {
+          path:'/info/goods',
+          name:'goods',
+          component:Goods,
+        },
+        {
+          path:'/info/list',
+          name:'goodsList',
+          component:GoodsList,
+        },
+        {
+          path:'/info/goodUpdate/:id',
+          name:'goodUpdate',
+          component:GoodUpdate,
+        }
+      ]
 
+    },
+    {
+      path: '/',
+      name: 'login',
+      component: Login
+    },
+    // {
+    //   path: '/about',
+    //   name: 'about',
+    //   // route level code-splitting
+    //   // this generates a separate chunk (about.[hash].js) for this route
+    //   // which is lazy-loaded when the route is visited.
+    //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+    // }
   ]
 })

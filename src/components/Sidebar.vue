@@ -110,20 +110,21 @@ export default {
         },
         {
           icon: "el-icon-circle-plus",
-          index: "6",
+          index: "drag",
+          title: "没想好"
+        },
+        {
+          icon: "el-icon-goods",
+          index: "info",
           title: "商品管理",
           subs: [
             {
-              index: "/info/addGoods",
-              title: "新增商品"
+              index: "/info/list",
+              title: "商品列表管理"
             },
             {
-              index: "/info/goodsList",
-              title: "商家列表"
-            },
-            {
-              index: "/info/addPets",
-              title: "新增宠物"
+              index: "/info/goods",
+              title: "商品管理"
             }
           ]
         }
