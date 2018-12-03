@@ -58,7 +58,7 @@
         width="100">
         <template slot-scope="scope">
           <el-button  @click="updata(scope.row)"  class="el-icon-edit" type="text" size="small">修改</el-button>
-          <el-button type="text" size="small">删除</el-button>
+          <el-button type="text" size="small" @click="upload(scope.row._id)">上传</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -75,7 +75,9 @@
         </div>
   
   </el-main>
+  <ShopsMessageBox/>
 </el-container>
+
 </template>
 <script>
 import { createNamespacedHelpers } from "vuex";
@@ -83,6 +85,11 @@ const { mapActions, mapState, mapMutations } = createNamespacedHelpers("Shop");
 export default {
   name: "shopList",
   methods: {
+    upload(_id){
+        localStorage.setItem("shopsId",JSON.stringify(_id))
+        console.log(_id)
+      this.setdialogFormVisible();
+    },
     updata(rows) {
       this.$router.push({ path: `/info/shopsUpdata/${rows._id}` }); // -> /user/123
     },
@@ -97,7 +104,7 @@ export default {
       this.setCurPage(val);
     },
     ...mapActions(["getShopsByPageAsyns","getShopEmployee"]),
-    ...mapMutations(["setCurPage", "seteachPage"]),
+    ...mapMutations(["setCurPage", "seteachPage","setdialogFormVisible"]),
     firstPage() {
       if (this.curPage != 1) {
         this.setCurPage(1);

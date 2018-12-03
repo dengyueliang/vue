@@ -49,11 +49,11 @@ export default {
           title: "门店管理",
           subs: [
             {
-              index: "/info/shopAdd",
+              index: "/info/add",
               title: "新增门店"
             },
             {
-              index: "/info/shopList",
+              index: "/info/shopsList",
               title: "门店列表"
             }
           ]

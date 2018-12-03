@@ -7,6 +7,7 @@ export default ({
         maxPage: 0,
         rows: [],
         arr:[],
+        dialogFormVisible: false,
     },
     mutations: {
         getShopsByPage(state,payload){
@@ -14,6 +15,10 @@ export default ({
         },
         getshopEmployee(state,payload){
             state.arr=payload[0].shopEmployee
+         },
+         setdialogFormVisible(state){
+             state.dialogFormVisible=!state.dialogFormVisible
+             console.log(state.dialogFormVisible)
          },
         setCurPage(state,curPage){
             state.curPage=curPage
