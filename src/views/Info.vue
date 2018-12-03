@@ -9,7 +9,6 @@
           <router-view></router-view>
         </li>
       </ul>
-      
   </div>
 </template>
 
@@ -27,8 +26,7 @@ export default {
 };
 </script>
 <style>
-
-.min{
- display: flex;
+.min {
+  display: flex;
 }
 </style>
