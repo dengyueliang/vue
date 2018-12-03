@@ -1,8 +1,10 @@
 <template>
     <el-dialog title="上传图片" :visible.sync="dialogFormVisible" :before-close="handleClose">
        <el-upload
-            action="/imgs/upload"
+            action="/goodsImgs/upload"
             list-type="picture-card"
+            :data="params"
+            :before-upload="beforeUpload"
             :on-preview="handlePictureCardPreview"
             :on-remove="handleRemove">
             <i class="el-icon-plus"></i>
@@ -28,12 +30,17 @@ const {
 export default {
   data() {
     return {
+      params: {id: JSON.stringify({goodId: 123})},
       dialogImageUrl: "",
       dialogVisible: false,
       formLabelWidth: "120px"
     };
   },
+
   methods: {
+    beforeUpload(file) {
+      this.params.id =  JSON.stringify({goodId:JSON.parse(localStorage.getItem('goodId'))});
+    },
     handleClose() {
       this.setdialogFormVisible();
     },

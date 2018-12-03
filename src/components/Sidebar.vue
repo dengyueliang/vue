@@ -32,9 +32,8 @@
 </template>
 
 <script>
- import bus from './bus.js';
+import bus from "./bus.js";
 export default {
-    
   data() {
     return {
       collapse: true,
@@ -63,7 +62,7 @@ export default {
               index: "form",
               title: "门店用户管理"
             },
-            
+
             {
               index: "upload",
               title: "消费用户管理"
@@ -87,9 +86,18 @@ export default {
         },
         {
           icon: "el-icon-goods",
-          index: "6",
-          title: "呵呵哈",
-         
+          index: "info",
+          title: "商品管理",
+          subs: [
+            {
+              index: "/info/list",
+              title: "商品列表管理"
+            },
+            {
+              index: "/info/goods",
+              title: "商品管理"
+            }
+          ]
         }
       ]
     };
@@ -110,7 +118,7 @@ export default {
 
 <style scoped>
 .sidebar {
-  display:inline-block;
+  display: inline-block;
   height: 586px;
 }
 .sidebar::-webkit-scrollbar {

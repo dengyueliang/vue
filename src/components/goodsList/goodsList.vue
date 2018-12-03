@@ -82,7 +82,7 @@
         width="100">
         <template slot-scope="scope">
             <el-button @click="handleClick(scope.row)" type="text" size="small">编辑</el-button>
-            <el-button type="text" size="small"  @click="Iclick">上传</el-button>
+            <el-button type="text" size="small"  @click="Iclick(scope.row._id)">上传</el-button>
         </template>
         </el-table-column>
         </el-table>
@@ -127,12 +127,12 @@ export default {
         curPage: this.curPage - 0,
         eachPage: this.eachPage - 0
       });
-    },
-
+    }
   },
   methods: {
-    Iclick() {
-      this.setdialogFormVisible();
+    Iclick(_id) {
+      localStorage.setItem("goodId", JSON.stringify(_id));
+      this.setdialogFormVisible(_id);
     },
     handleSizeChange(val) {
       this.seteachPage(val);
@@ -144,7 +144,7 @@ export default {
       this.$router.push({ path: `/info/goodUpdate/${row._id}` }); // -> /user/123
     },
     ...mapActions(["getAllAsync"]),
-    ...mapMutations(["setCurPage", "seteachPage","setdialogFormVisible"])
+    ...mapMutations(["setCurPage", "seteachPage", "setdialogFormVisible"])
   },
   data() {
     return {

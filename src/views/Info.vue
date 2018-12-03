@@ -6,21 +6,17 @@
           <Sidebar></Sidebar>
         </li>
         <li style="width:100%">
-          内容
+          <router-view></router-view>
         </li>
       </ul>
-      
   </div>
 </template>
 
 <script>
-export default {
- 
-};
+export default {};
 </script>
 <style>
-
-.min{
- display: flex;
+.min {
+  display: flex;
 }
 </style>

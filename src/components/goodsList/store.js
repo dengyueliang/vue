@@ -6,6 +6,7 @@ export default ({
         maxPage: 0,
         row: [],
         total: 0,
+        _id:'',
         dialogFormVisible:false
     },
     mutations: {
@@ -18,7 +19,8 @@ export default ({
         seteachPage(state, eachPage) {
             state.eachPage = eachPage
         },
-        setdialogFormVisible(state) {
+        setdialogFormVisible(state,_id) {
+            state._id=_id
             state.dialogFormVisible = !state.dialogFormVisible 
         }
     },

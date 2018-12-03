@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Info from "./views/Info.vue"
 import Login from "./views/Login.vue"
+import Goods from "./views/goods.vue"
+import GoodsList from "./views/goodsList.vue"
+import GoodUpdate from "./views/goodUpdate.vue"
 
 Vue.use(Router)
 
@@ -10,7 +13,25 @@ export default new Router({
     {
       path: '/info',
       name: 'info',
-      component: Info
+      component: Info,
+      children:[
+        {
+          path:'/info/goods',
+          name:'goods',
+          component:Goods,
+        },
+        {
+          path:'/info/list',
+          name:'goodsList',
+          component:GoodsList,
+        },
+        {
+          path:'/info/goodUpdate/:id',
+          name:'goodUpdate',
+          component:GoodUpdate,
+        }
+      ]
+
     },
     {
       path: '/',
