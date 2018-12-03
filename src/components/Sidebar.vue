@@ -1,6 +1,6 @@
 <template>
-    <div class="sidebar">
-        <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="collapse" background-color="#324157"
+    <div class="sidebar" >
+        <el-menu class="sidebar-el-menu"  :default-active="onRoutes" :collapse="collapse" background-color="#324157"
             text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened router>
             <template v-for="item in items">
                 <template v-if="item.subs">
@@ -40,18 +40,38 @@ export default {
       items: [
         {
           icon: "el-icon-info",
-          index: "dashboard",
+          index: "/info/cese",
           title: "系统首页"
         },
         {
           icon: "el-icon-error",
-          index: "table",
-          title: "查看门店"
+          index: "1",
+          title: "门店管理",
+          subs: [
+            {
+              index: "/info/shopAdd",
+              title: "新增门店"
+            },
+            {
+              index: "/info/shopList",
+              title: "门店列表"
+            }
+          ]
         },
         {
           icon: "el-icon-success",
-          index: "tabs",
-          title: "增加门店"
+          index: "2",
+          title: "服务管理",
+          subs: [
+            {
+              index: "/info/addService",
+              title: "新增服务"
+            },
+            {
+              index: "/info/serviceList",
+              title: "服务列表"
+            }
+          ]
         },
         {
           icon: "el-icon-warning",
@@ -59,25 +79,34 @@ export default {
           title: "用户管理",
           subs: [
             {
-              index: "form",
-              title: "门店用户管理"
+              index: "4",
+              title: "商家管理",
+              subs: [
+                {
+                  index: "/info/addBusiness",
+                  title: "新增商家"
+                },
+                {
+                  index: "/info/businessList",
+                  title: "商家列表"
+                }
+              ]
             },
-
             {
-              index: "upload",
-              title: "消费用户管理"
+              index: "5",
+              title: "用户管理",
+              subs: [
+                {
+                  index: "/info/addUser",
+                  title: "新增用户"
+                },
+                {
+                  index: "/info/userList",
+                  title: "用户列表"
+                }
+              ]
             }
           ]
-        },
-        {
-          icon: "el-icon-question",
-          index: "icon",
-          title: "自定义"
-        },
-        {
-          icon: "el-icon-remove",
-          index: "charts",
-          title: "添加管理"
         },
         {
           icon: "el-icon-circle-plus",
@@ -102,24 +131,31 @@ export default {
       ]
     };
   },
+
   computed: {
     onRoutes() {
       return this.$route.path.replace("/", "");
     }
   },
+
   created() {
     // 通过 Event Bus 进行组件间通信，来折叠侧边栏
     bus.$on("collapse", msg => {
       this.collapse = msg;
     });
-  }
+  },
+
+  beforeMount() {},
+  mounted() {}
 };
 </script>
+
+
 
 <style scoped>
 .sidebar {
   display: inline-block;
-  height: 586px;
+  height: 100%;
 }
 .sidebar::-webkit-scrollbar {
   width: 0;

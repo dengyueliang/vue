@@ -7,7 +7,6 @@ import GoodsList from "./views/goodsList.vue"
 import GoodUpdate from "./views/goodUpdate.vue"
 
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
