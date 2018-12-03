@@ -19,9 +19,17 @@
         prop="empLevel"
         label="职位">
       </el-table-column>
+       <el-table-column
+        label="操作"
+        width="100">
+        <template slot-scope="scope">
+          <el-button  @click="updata(scope.row)"  class="el-icon-edit" type="text" size="small">修改</el-button>
+          <el-button type="text" size="small">删除</el-button>
+        </template>
+      </el-table-column>
     </el-table>
       <el-button @click="onCLASD">取 消</el-button>
-      <el-button type="text" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</el-button>
+      <el-button type="text" @click="dialogFormVisible = true">新增店员</el-button>
         <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
         <el-form :model="form">
             <el-form-item label="店员名字" :label-width="formLabelWidth">
@@ -66,8 +74,10 @@ export default {
     ...mapState(["arr"])
   },
   mounted(){
+    this.getShopEmployee(this.$route.params._id)
   },
   methods: {
+      ...mapActions(["getShopEmployee",]),
       onCLASD(){
           console.log(this)
       },

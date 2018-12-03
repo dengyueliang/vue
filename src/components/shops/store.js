@@ -13,7 +13,7 @@ export default ({
            Object.assign(state,payload)
         },
         getshopEmployee(state,payload){
-            Object.assign(state,payload)
+            state.arr=payload[0].shopEmployee
          },
         setCurPage(state,curPage){
             state.curPage=curPage
@@ -29,7 +29,7 @@ export default ({
             context.commit("getShopsByPage",data)
           },
           async  getShopEmployee(context,id){
-            const data=await fetch(`/shop/getShops?_id${id}`)
+            const data=await fetch(`/shop/getById?_id=${id}`)
             .then(response=>response.json())
             context.commit("getshopEmployee",data)
           }
